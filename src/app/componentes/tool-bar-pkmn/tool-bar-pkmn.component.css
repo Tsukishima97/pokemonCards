@@ -1,0 +1,11 @@
+.exampleSpacer {
+    flex: 1 1 auto;
+  }
+  
+.formFieldBuscador, .formFieldSelect{
+  margin-top: 22px !important;
+}
+
+.formFieldSelect {
+  margin-right: 1em;
+}

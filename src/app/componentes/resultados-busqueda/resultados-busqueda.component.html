@@ -1,0 +1,33 @@
+<div class="overlaySpinner" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<div class="btnContainer"
+     *ngIf="pokemonByRegionObj"> <!--Este ngIf subsana un error de consola por tener el objeto a null-->
+    <button mat-flat-button
+            class="btnPkmn"
+            *ngFor="let pokemon of pokemonByRegionObj.pokemon_entries"
+            (click)="openDialog(pokemon.pokemon_species.name)">{{pokemon.pokemon_species.name}}</button>
+</div>
+
+
+<!-- PRUEBAS CON LOS DATOS DE LA API -->
+<!-- <div *ngIf="pokemonObj">
+    <h3>{{ pokemonObj.name }}</h3>
+    <p>Tipo: {{ pokemonObj.types[0].type.name }}</p>
+</div>
+  
+<div *ngIf="!pokemonObj">
+    <p>No hay datos disponibles.</p>
+</div>
+
+<div *ngIf="pokemonByRegionObj">
+    <h3>{{ pokemonByRegionObj.name }}</h3>
+    <p>Region: {{ pokemonByRegionObj.name }}</p>
+    <p>Region description: {{ pokemonByRegionObj.descriptions[2].description }}</p>
+</div>
+  
+<div *ngIf="!pokemonByRegionObj">
+    <p>No hay datos disponibles para la region.</p>
+</div> -->
+

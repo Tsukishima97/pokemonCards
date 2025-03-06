@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>PokeBuscador</span>
+    <span class="exampleSpacer"></span>
+
+    <mat-form-field class="formFieldSelect">
+      <mat-label>Region</mat-label>
+      <mat-select [(ngModel)]="selectedRegion" (selectionChange)="onRegionChange()">
+        <mat-option *ngFor="let region of selectValues" [value]="region">{{ region.viewValue }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="formFieldBuscador">
+      <input matInput type="search" (input)="onSearch($event)">
+      <button matSuffix mat-icon-button aria-label="Search">
+        <mat-icon style="color: black;">search</mat-icon>
+      </button>
+    </mat-form-field>
+    
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+      <mat-icon>share</mat-icon>
+    </button>
+</mat-toolbar>

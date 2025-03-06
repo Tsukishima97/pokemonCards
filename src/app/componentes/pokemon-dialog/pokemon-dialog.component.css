@@ -1,0 +1,21 @@
+
+.btnCerrar {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.dialogTitle {
+    display: flex;
+    align-items: center;
+}
+
+.titleText {
+    height: auto;
+    margin-right: 10px;
+    width: 100px;
+}
+
+.titleImg {
+    margin-left: 4rem;
+}

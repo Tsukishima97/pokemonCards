@@ -1,0 +1,22 @@
+
+
+<div class="dialogStyles">
+
+    <div class="dialogTitle">
+        <h2 mat-dialog-title 
+            class="title">{{pokemonName | uppercase}}</h2>
+
+        <img class="titleImg"
+             *ngIf="pokemonInfoObj"
+             src="{{pokemonInfoObj.sprites.front_default}}">
+    </div>
+
+    <p *ngIf="pokemonInfoObj">{{pokemonInfoObj.name}}</p>
+    
+    
+    <button mat-button 
+            mat-dialog-close 
+            class="btnCerrar">Cerrar</button>
+
+</div>
+

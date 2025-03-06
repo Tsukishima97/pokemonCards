@@ -1,0 +1,29 @@
+
+.overlaySpinner {
+    position: fixed;     /* Fija el spinner sobre la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   /* background: rgba(0, 0, 0, 0.5);  /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;  /* Centra el spinner horizontalmente */
+    align-items: center;      /* Centra el spinner verticalmente */
+    z-index: 9999;            /* Asegúrate de que el spinner esté encima de otros elementos */   
+}
+
+.example-card {
+    max-width: 20em;
+    margin: 8px;
+  }
+
+.btnPkmn {
+    background-color: rgb(128, 159, 218) !important;
+    color: white !important;
+    margin: 1em;
+}
+.btnContainer {
+    background-color: rgb(170, 170, 170);
+    padding-left: 2em;
+    padding-right: 2em;
+}
