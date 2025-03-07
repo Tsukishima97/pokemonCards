@@ -4,6 +4,7 @@ import { debounceTime, switchMap } from 'rxjs/operators';
 import { PokeApiService } from '../../services/poke-api.service';
 import { SelectRegion } from 'src/app/interfaces/select-region';
 import { LoadingService } from 'src/app/services/loading.service';
+import { MenuLateralService } from 'src/app/services/menu-lateral.service';
 
 @Component({
   selector: 'app-tool-bar-pkmn',
@@ -11,6 +12,8 @@ import { LoadingService } from 'src/app/services/loading.service';
   styleUrls: ['./tool-bar-pkmn.component.css']
 })
 export class ToolBarPkmnComponent {
+
+  sidenavToggle: boolean = false;
 
   pokemonBuscado: any;
   searchedPokemon$ = new Subject<string>(); // Observable para manejar el termino de busqueda.
@@ -22,7 +25,8 @@ export class ToolBarPkmnComponent {
   ]
   selectedRegion: SelectRegion = this.selectValues[0];
 
-  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService){
+  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService,private sidenavSrv: MenuLateralService)
+  {
 
   // Suscribirse al observable y hacer la busqueda cuando el valor cambie.
   this.searchedPokemon$
@@ -39,6 +43,12 @@ export class ToolBarPkmnComponent {
 
     // Llamada para que haga la busqueda de los pokemon de Kanto al iniciar la app
     this.onRegionChange();
+  }
+
+  openSidenav(){
+    this.sidenavSrv.openSidenav(!this.sidenavToggle);
+    //Cambio el valor del booleano
+    this.sidenavToggle = !this.sidenavToggle;
   }
 
   // Llamada a la funcion de busqueda

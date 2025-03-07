@@ -11,7 +11,20 @@
              src="{{pokemonInfoObj.sprites.front_default}}">
     </div>
 
-    <p *ngIf="pokemonInfoObj">{{pokemonInfoObj.name}}</p>
+    <div class="dialogContent">
+
+        <h4>Lista de movimientos</h4>
+        <ul>
+            <li *ngFor="let moves of pokemonInfoObj.moves.slice(0,5)">
+                {{moves.move.name}}
+                
+                <a *ngIf="moves.version_group_details[0].level_learned_at != 0"> lo aprende al nivel: {{moves.version_group_details[0].level_learned_at}} </a>
+            </li>
+            <li>Etc...</li>
+        </ul>
+
+    </div>
+    <!-- <p *ngIf="pokemonInfoObj">{{pokemonInfoObj.name}}</p> -->
     
     
     <button mat-button 

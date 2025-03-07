@@ -18,6 +18,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatDialogModule} from '@angular/material/dialog';
 import { PokemonDialogComponent } from './componentes/pokemon-dialog/pokemon-dialog.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PokemonDialogComponent } from './componentes/pokemon-dialog/pokemon-dia
     FormsModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSidenavModule
     
   ],
   providers: [],

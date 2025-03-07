@@ -5,6 +5,7 @@ import { PokeApiCallByRegion } from 'src/app/interfaces/poke-api-calls';
 import { LoadingService } from 'src/app/services/loading.service';
 import { PokeApiService } from 'src/app/services/poke-api.service';
 import { PokemonDialogComponent } from '../pokemon-dialog/pokemon-dialog.component';
+import { MenuLateralService } from 'src/app/services/menu-lateral.service';
 
 @Component({
   selector: 'app-resultados-busqueda',
@@ -13,13 +14,23 @@ import { PokemonDialogComponent } from '../pokemon-dialog/pokemon-dialog.compone
 })
 export class ResultadosBusquedaComponent {
 
+  sidenavToggle: boolean = false;
+
   pokemonObj: any;
   pokemonByRegionObj!: PokeApiCallByRegion;
 
   // Variable para mostrar el spinner cuando se esten buscando pokemon
   isLoading: boolean = false;
 
-  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService, private dialog: MatDialog){}
+  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService, private dialog: MatDialog, private sidenavSrv: MenuLateralService){
+
+    //Me suscribo a la variable del servicio que comunicara el cambio que se ha hecho desde el componente del toolbar
+    this.sidenavSrv.sidenavToggle$.subscribe( isOpened => 
+      {
+        this.sidenavToggle = isOpened;
+      }
+    )
+  }
   
   ngOnInit(): void{
 
@@ -67,6 +78,7 @@ export class ResultadosBusquedaComponent {
 
     dialogRef.componentInstance.pokemonName = pokemonNamePadre; //Aqui paso el valor del nombre del pokemon al dialog para la posterior llamada a la API
 
+    //Evento para cuando se haya cerrado el dialog del pkmn
     // dialogRef.afterClosed().subscribe(
     //   data => {
     //     alert('dialog cerrau')

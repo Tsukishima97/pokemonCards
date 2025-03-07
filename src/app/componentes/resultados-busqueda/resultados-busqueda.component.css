@@ -12,18 +12,32 @@
     z-index: 9999;            /* Asegúrate de que el spinner esté encima de otros elementos */   
 }
 
-.example-card {
-    max-width: 20em;
-    margin: 8px;
-  }
 
 .btnPkmn {
     background-color: rgb(128, 159, 218) !important;
     color: white !important;
     margin: 1em;
 }
+
 .btnContainer {
     background-color: rgb(170, 170, 170);
     padding-left: 2em;
     padding-right: 2em;
+}
+
+.menuContainer {
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuLateral {
+    background-color: wheat;
+    width: 250px;  
+    height: calc(100vh - 65px); /* 100vh menos el alto del toolbar */
+    padding: 16px;
+}
+
+.menuContent {
+    flex-grow: 1;  /* ocupa el espacio restante */
 }

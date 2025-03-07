@@ -10,6 +10,11 @@
     align-items: center;
 }
 
+.dialogContent {
+    display: block;
+    padding-left: 1.5rem;
+}
+
 .titleText {
     height: auto;
     margin-right: 10px;
