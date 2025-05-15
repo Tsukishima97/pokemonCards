@@ -1,0 +1,62 @@
+
+<div class="mainContainer" *ngIf="teamFavorites.length > 0; else emptyTeam">
+
+    <div class="teamContainer">
+        <h3 class="titleText">Add a pokemon</h3>
+        <div class="pokemonScrollContainer">
+            <div class="pokemonItem" *ngFor="let pokemon of pokemonByRegionObj.pokemon_entries">
+                <span>{{ pokemon.pokemon_species.name| titlecase }}</span>
+                <button mat-button 
+                        [disabled]="isFav(pokemon.pokemon_species.name)"
+                        color="warn" 
+                        (click)="addPkmn(pokemon.pokemon_species.name)">
+                    <mat-icon style="color: red;" *ngIf="isFav(pokemon.pokemon_species.name)">favorite</mat-icon>
+                    <mat-icon style="color: red;" *ngIf="!isFav(pokemon.pokemon_species.name)">favorite_border</mat-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="teamContainer">
+        <div class="title">
+            <h3 class="titleText">Favorite Pokémons</h3>
+            <!-- <div class="titleBtn">
+                <button mat-icon-button
+                        class="addBtn"><mat-icon>add</mat-icon></button>
+            </div> -->
+        </div>
+        <div class="pokemonCard" *ngFor="let pokemon of teamFavorites">
+          <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" />
+          <div class="info">
+            <strong>{{ pokemon.name | titlecase }}</strong>
+            <button mat-button color="warn" (click)="removePkmn(pokemon.name)">
+              <mat-icon style="color: red;">favorite</mat-icon>
+            </button>
+          </div>
+    
+          <div class="dataPkmn">
+            <div>
+                Height: {{pokemon.height}}
+            </div>
+            <div>
+                Weight: {{pokemon.weight}}
+            </div>
+            <div>
+                Type: {{pokemon.types[0].type.name}}
+            </div>
+            <div>
+                Base HP: {{pokemon.stats[0].base_stat}}
+            </div>
+          </div>
+    
+        </div>
+    
+    </div>
+    
+</div>
+
+
+<ng-template #emptyTeam>
+    <p>No tienes Pokémon favoritos en tu equipo aún.</p>
+</ng-template>
+  

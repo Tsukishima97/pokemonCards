@@ -5,7 +5,6 @@ import { PokeApiCallByRegion } from 'src/app/interfaces/poke-api-calls';
 import { LoadingService } from 'src/app/services/loading.service';
 import { PokeApiService } from 'src/app/services/poke-api.service';
 import { PokemonDialogComponent } from '../pokemon-dialog/pokemon-dialog.component';
-import { MenuLateralService } from 'src/app/services/menu-lateral.service';
 
 @Component({
   selector: 'app-resultados-busqueda',
@@ -14,23 +13,13 @@ import { MenuLateralService } from 'src/app/services/menu-lateral.service';
 })
 export class ResultadosBusquedaComponent {
 
-  sidenavToggle: boolean = false;
-
   pokemonObj: any;
   pokemonByRegionObj!: PokeApiCallByRegion;
 
   // Variable para mostrar el spinner cuando se esten buscando pokemon
   isLoading: boolean = false;
 
-  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService, private dialog: MatDialog, private sidenavSrv: MenuLateralService){
-
-    //Me suscribo a la variable del servicio que comunicara el cambio que se ha hecho desde el componente del toolbar
-    this.sidenavSrv.sidenavToggle$.subscribe( isOpened => 
-      {
-        this.sidenavToggle = isOpened;
-      }
-    )
-  }
+  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService, private dialog: MatDialog){}
   
   ngOnInit(): void{
 
@@ -42,7 +31,7 @@ export class ResultadosBusquedaComponent {
       data => {
         this.loadingSrv.stopLoading(); //Paro el spinner 
         this.pokemonObj = data;
-        // console.log('Resultado componente resbusq: '+this.pokemonObj);
+         console.log('Resultado componente resbusq: '+this.pokemonObj);
       }
     )
 

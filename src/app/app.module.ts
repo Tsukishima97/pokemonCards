@@ -19,13 +19,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import { PokemonDialogComponent } from './componentes/pokemon-dialog/pokemon-dialog.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { PkmnFavoritosComponent } from './componentes/pkmn-favoritos/pkmn-favoritos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolBarPkmnComponent,
     ResultadosBusquedaComponent,
-    PokemonDialogComponent
+    PokemonDialogComponent,
+    PkmnFavoritosComponent
   ],
   imports: [
     BrowserModule,

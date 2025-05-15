@@ -5,6 +5,7 @@ import { PokeApiService } from '../../services/poke-api.service';
 import { SelectRegion } from 'src/app/interfaces/select-region';
 import { LoadingService } from 'src/app/services/loading.service';
 import { MenuLateralService } from 'src/app/services/menu-lateral.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tool-bar-pkmn',
@@ -25,7 +26,9 @@ export class ToolBarPkmnComponent {
   ]
   selectedRegion: SelectRegion = this.selectValues[0];
 
-  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService,private sidenavSrv: MenuLateralService)
+  constructor(private pokeApiSrv: PokeApiService,private loadingSrv: LoadingService,private sidenavSrv: MenuLateralService,
+              private router: Router,
+  )
   {
 
   // Suscribirse al observable y hacer la busqueda cuando el valor cambie.
@@ -45,6 +48,16 @@ export class ToolBarPkmnComponent {
     this.onRegionChange();
   }
 
+  
+  goTo(url: string){
+    if(this.sidenavToggle){
+      this.sidenavToggle = !this.sidenavToggle;
+      this.sidenavSrv.openSidenav(this.sidenavToggle);
+    }
+    this.router.navigate(['/'+url])
+  }
+
+
   openSidenav(){
     this.sidenavSrv.openSidenav(!this.sidenavToggle);
     //Cambio el valor del booleano
@@ -58,16 +71,18 @@ export class ToolBarPkmnComponent {
     return new Observable(observer => {
 
       this.pokeApiSrv.getPokemonByName(searchedPokemon).subscribe(
-        pokemonList => {
-          //Guardo el valor de la llamada a la API en una variable local
-          this.pokemonBuscado = pokemonList;
-          //Seteo el valor de la busqueda en el observable compartido del servicio
-          this.pokeApiSrv.setDataBusqueda(this.pokemonBuscado);
+        {
+           next: pokemonObj => {
+            //Guardo el valor de la llamada a la API en una variable local
+            this.pokemonBuscado = pokemonObj;
+            //Seteo el valor de la busqueda en el observable compartido del servicio
+            this.pokeApiSrv.setDataBusqueda(this.pokemonBuscado);
 
-          // console.log(pokemonList);
-        },
-        error => {
-          console.error('Error al obtener datos', error);  // Manejo de errores
+            // console.log(pokemonObj);
+          },
+          error: error => {
+            console.error('Error al obtener datos', error);  // Manejo de errores
+          }
         }
       );
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, firstValueFrom, Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { SelectRegion } from '../interfaces/select-region';
 
@@ -50,6 +50,11 @@ export class PokeApiService {
 
   // Llamada a la API para buscar un pokemon por nombre
   getPokemonByName(pokemonName: string): Observable<any>{
-    return this.http.get(`${this.apiUrl}`+`pokemon/`+pokemonName+`/`)
+    return this.http.get(`${this.apiUrl}`+`pokemon/`+pokemonName+`/`);
+  }
+
+  // Llamada para obtener un pokemon de la API pero devolviendo una promesa (usado en la vista de favoritos)
+  getPokemonByNamePromise(pokemonName: string): Promise<any>{
+    return firstValueFrom(this.http.get(`${this.apiUrl}`+`pokemon/`+pokemonName+`/`))
   }
 }

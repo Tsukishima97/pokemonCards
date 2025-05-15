@@ -1,0 +1,81 @@
+.mainContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.teamContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .pokemonCard {
+    display: flex;
+    align-items: center;
+    background: #f3f3f3;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 12px;
+  
+    img {
+      width: 64px;
+      height: 64px;
+    }
+  
+    .info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dataPkmn{
+        display: grid;
+        gap: 8px;
+        grid-template-columns: repeat(2,1fr);
+        margin-left: 1em;
+    }
+  }
+
+  .title{
+    display: flex;
+    align-items: center;
+  }
+
+  .titleText{
+    margin-top: 10px;
+    height: auto;
+    align-items: center;
+    width: 10rem;
+  }
+
+  .titleBtn{
+    display: flex;
+    align-items: center; /*para centrarlos verticalmente*/
+    justify-content: flex-end; /*para que se muestren los elementos pegados a la derecha*/
+    gap: 5px;
+    flex-grow: 1; /*para ocupar el resto del titulo*/
+    }
+
+    .pokemonScrollContainer{
+        height: 400px;             /*O la altura que necesites*/
+        overflow-y: auto;         /* Scroll solo vertical*/
+        border: 1px solid #ccc;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 8px;
+      }
+      
+    .pokemonItem {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 6px;
+        border-bottom: 1px solid #e0e0e0;
+
+      
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+      

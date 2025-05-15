@@ -1,3 +1,35 @@
+<!-- Siempre aparece el toolbar por lo que es permanente en el app.html -->
 <app-tool-bar-pkmn></app-tool-bar-pkmn>
+<!-- <app-resultados-busqueda></app-resultados-busqueda> -->
 
-<app-resultados-busqueda></app-resultados-busqueda>
+<!-- Menu lateral / Sidenav -->
+<mat-sidenav-container class="menuContainer">
+
+    <!-- Sidenav -->
+    <mat-sidenav #sidenav mode="over"
+                 class="menuLateral"
+                 position="start"
+                 [(opened)]="sidenavToggle">
+      <!-- <button mat-button (click)="sidenav.toggle()">Cerrar</button> -->
+      <!-- <p>Contenido del sidenav</p> -->
+
+      <!-- Botones dinamicos del sidenav -->
+      <div class="sidenavBtnera">
+        <button mat-stroked-button
+                class="btnSidenav"
+                (click)="goTo(btnName.url)"
+                *ngFor="let btnName of botoneraSidenavList">{{btnName.name}}</button>
+      </div>
+
+
+    </mat-sidenav>
+  
+    <!-- Contenido principal -->
+    <mat-sidenav-content class="menuContent">
+        
+        <!-- Esta llamada es para poder cambiar de vistas en la app -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  
+  
+</mat-sidenav-container>

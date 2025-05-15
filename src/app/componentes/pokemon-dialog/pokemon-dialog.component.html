@@ -1,14 +1,23 @@
 
 
-<div class="dialogStyles">
+<div class="dialogStyles"
+     *ngIf="pokemonInfoObj">
 
     <div class="dialogTitle">
         <h2 mat-dialog-title 
             class="title">{{pokemonName | uppercase}}</h2>
 
-        <img class="titleImg"
-             *ngIf="pokemonInfoObj"
-             src="{{pokemonInfoObj.sprites.front_default}}">
+        <div class="contenedorImgFav">
+            <img class="titleImg"
+                 *ngIf="pokemonInfoObj"
+                 src="{{pokemonInfoObj.sprites.front_default}}">
+            <button mat-icon-button
+                    (click)="addRemoveFav()"
+                    class="favBtn">
+                <mat-icon style="color: red;" *ngIf="isFav()">favorite</mat-icon>
+                <mat-icon *ngIf="!isFav()">favorite_border</mat-icon>
+            </button>
+        </div>
     </div>
 
     <div class="dialogContent">
@@ -33,3 +42,8 @@
 
 </div>
 
+<div *ngIf="!pokemonInfoObj"
+style="  display: flex;justify-content: center;align-items: center;height: 100%; ">
+    <!-- AÑADIR SPINNER MIENTRAS CARGAN LOS DATOS DEL MODAL -->
+     <mat-spinner></mat-spinner>
+</div>

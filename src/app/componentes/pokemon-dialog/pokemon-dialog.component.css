@@ -21,6 +21,11 @@
     width: 100px;
 }
 
-.titleImg {
-    margin-left: 4rem;
+.contenedorImgFav{
+    display: flex;
+    align-items: center; /*para centrarlos verticalmente*/
+    justify-content: flex-end; /*para que se muestren los elementos pegados a la derecha*/
+    gap: 5px;
+    flex-grow: 1; /*para ocupar el resto del titulo*/
+    margin-right: 2rem;
 }

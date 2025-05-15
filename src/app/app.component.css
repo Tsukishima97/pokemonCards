@@ -1,0 +1,24 @@
+
+.menuContainer {
+    height: 93vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.menuLateral {
+    background-color: wheat;
+    width: 250px;  
+    height: calc(100vh - 65px); /* 100vh menos el alto del toolbar */
+    padding: 16px;
+}
+
+.menuContent {
+    flex-grow: 1;  /* ocupa el espacio restante */
+}
+
+.sidenavBtnera{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}

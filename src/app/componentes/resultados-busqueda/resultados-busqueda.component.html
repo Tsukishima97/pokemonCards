@@ -1,38 +1,19 @@
 
-<!-- Menu lateral / Sidenav -->
-<mat-sidenav-container class="menuContainer">
 
-    <!-- Sidenav -->
-    <mat-sidenav #sidenav mode="over"
-                 class="menuLateral"
-                 position="start"
-                 [(opened)]="sidenavToggle">
-      <!-- <button mat-button (click)="sidenav.toggle()">Cerrar</button> -->
-      <p>Contenido del sidenav</p>
-    </mat-sidenav>
-  
-    <!-- Contenido principal -->
-    <mat-sidenav-content class="menuContent">
-  
-        <!-- Spinner para la carga cuando se hace una busqueda -->
-        <div class="overlaySpinner" *ngIf="isLoading">
-            <mat-spinner></mat-spinner>
-        </div>
-        
-        <!-- ngfor para mostrar los botones que sacaran los dialogs con los datos del pokemon en concreto -->
-        <div class="btnContainer"
-             *ngIf="pokemonByRegionObj"> <!--Este ngIf subsana un error de consola por tener el objeto a null-->
-            <button mat-flat-button
-                    class="btnPkmn"
-                    *ngFor="let pokemon of pokemonByRegionObj.pokemon_entries"
-                    (click)="openDialog(pokemon.pokemon_species.name)">{{pokemon.pokemon_species.name}}</button>
-        </div>
-        
-    </mat-sidenav-content>
-  
-  
-  </mat-sidenav-container>
 
+<!-- Spinner para la carga cuando se hace una busqueda -->
+<div class="overlaySpinner" *ngIf="isLoading">
+    <mat-spinner></mat-spinner>
+</div>
+
+<!-- ngfor para mostrar los botones que sacaran los dialogs con los datos del pokemon en concreto -->
+<div class="btnContainer"
+     *ngIf="pokemonByRegionObj"> <!--Este ngIf subsana un error de consola por tener el objeto a null-->
+    <button mat-flat-button
+            class="btnPkmn"
+            *ngFor="let pokemon of pokemonByRegionObj.pokemon_entries"
+            (click)="openDialog(pokemon.pokemon_species.name)">{{pokemon.pokemon_species.name}}</button>
+</div>
 
 
 <!-- PRUEBAS CON LOS DATOS DE LA API -->

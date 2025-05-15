@@ -79,9 +79,8 @@ export interface typeInterface {
 }
 
 
-/* Interfaz para la llamada a la API para obtener una lista de pokemons por region (solo hay dos habilitadas: kanto y johto)*/
+/* Interfaz para la llamada a la API para obtener una lista de pokemons por region (solo hay dos habilitadas: kanto y hoenn)*/
 export interface PokeApiCallByRegion {
-
     descriptions: pokeDescriptions[];
     id: number;
     is_main_series: boolean;
@@ -90,8 +89,6 @@ export interface PokeApiCallByRegion {
     pokemon_entries: pokeEntries[];
     region: basicObj;
     version_groups: basicObj[];
-
-
 }
 
 export interface pokeDescriptions {
@@ -113,3 +110,21 @@ export interface basicObj {
     name: string;
     url: string;
 }
+
+// Funcion de inicializacion 
+export function crearPokeApiCallByRegionDefault(): PokeApiCallByRegion {
+    return {
+      descriptions: [],
+      id: 0,
+      is_main_series: false,
+      name: '',
+      names: [],
+      pokemon_entries: [],
+      region: {
+        name: '',
+        url: ''
+      },
+      version_groups: []
+    };
+  }
+  

@@ -6,7 +6,12 @@
           class="example-icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <span>PokeBuscador</span>
+  <span>
+    <a (click)="goTo('resultadosBsqd')"
+       style="cursor: pointer;">
+      PokeBuscador
+    </a>
+  </span>
   <span class="exampleSpacer"></span>
 
   <mat-form-field class="formFieldSelect">
@@ -16,12 +21,12 @@
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field class="formFieldBuscador">
+  <!-- <mat-form-field class="formFieldBuscador">
     <input matInput type="search" (input)="onSearch($event)">
     <button matSuffix mat-icon-button aria-label="Search">
       <mat-icon style="color: black;">search</mat-icon>
     </button>
-  </mat-form-field>
+  </mat-form-field> -->
   
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
