@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'pkmnCards';
 
-  botoneraSidenavList: basicObj[] = [{name: 'Inicio',url: 'resultadosBsqd'},{name: 'Favoritos',url: 'favorites'}];
+  botoneraSidenavList: basicObj[] = [{name: 'Inicio',url: 'resultadosBsqd'},{name: 'Favoritos',url: 'favorites'},{name: 'Comparador',url: 'comparador'}];
   sidenavToggle: boolean = false;
   
   constructor(private sidenavSrv: MenuLateralService,private router: Router){

@@ -13,3 +13,23 @@
 .toolbar{
   height: 65px;
 }
+
+.optionStyle{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.mat-pseudo-checkbox {
+  display: none !important;
+}
+
+.customPngIcon {
+  background-image: url('/assets/icons/pokeballIcon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}

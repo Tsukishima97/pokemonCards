@@ -13,6 +13,7 @@ export class PokemonDialogComponent {
   @Input() pokemonName!: string;
 
   pokemonInfoObj!: PokeApiCallPkmnByName;
+  stringUrlAudio: string = "";
 
   constructor(private pokeSrv: PokeApiService,private favesSrv: FavTeamService){
   }
@@ -23,6 +24,7 @@ export class PokemonDialogComponent {
       this.pokeSrv.getPokemonByName(this.pokemonName).subscribe(
         data => {
           this.pokemonInfoObj = data;
+          this.reproducirLlanto();
         }
       )
     }
@@ -41,5 +43,17 @@ export class PokemonDialogComponent {
 
       this.favesSrv.addFavorite(this.pokemonName);
     }
+  }
+
+  reproducirLlanto(): void{
+
+    if(this.pokemonInfoObj.cries && this.pokemonInfoObj.cries.latest !== ""){
+      this.stringUrlAudio = this.pokemonInfoObj.cries.latest;
+    }else{
+      this.stringUrlAudio = this.pokemonInfoObj.cries.legacy;
+    }
+    
+    const audio = new Audio(this.stringUrlAudio);
+    audio.play();
   }
 }

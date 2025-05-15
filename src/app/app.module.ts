@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { PokemonDialogComponent } from './componentes/pokemon-dialog/pokemon-dialog.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { PkmnFavoritosComponent } from './componentes/pkmn-favoritos/pkmn-favoritos.component';
+import { ComparadorPkmnComponent } from './componentes/comparador-pkmn/comparador-pkmn.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { PkmnFavoritosComponent } from './componentes/pkmn-favoritos/pkmn-favori
     ToolBarPkmnComponent,
     ResultadosBusquedaComponent,
     PokemonDialogComponent,
-    PkmnFavoritosComponent
+    PkmnFavoritosComponent,
+    ComparadorPkmnComponent
   ],
   imports: [
     BrowserModule,

@@ -29,7 +29,7 @@ export interface abilitiesInterface {
 }
 
 export interface criesInterface {
-    lates: string;
+    latest: string;
     legacy: string;
 }
 

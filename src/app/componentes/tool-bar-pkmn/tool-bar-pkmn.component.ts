@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
 import { PokeApiService } from '../../services/poke-api.service';
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-tool-bar-pkmn',
   templateUrl: './tool-bar-pkmn.component.html',
-  styleUrls: ['./tool-bar-pkmn.component.css']
+  styleUrls: ['./tool-bar-pkmn.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ToolBarPkmnComponent {
 
